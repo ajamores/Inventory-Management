@@ -42,7 +42,7 @@ function abort($status = 404){
 
 
 /**
- * Check if url matches the current request uri
+ * Check  if url matches the current request uri from the server
  */
 function urlIs($url){
 

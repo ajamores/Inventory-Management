@@ -1,36 +1,29 @@
-
 <?php require base_path('views/partials/head.php') ?>
-
 
 <?php require base_path('views/partials/nav.php') ?>
 
-<!-- Main Content Area -->
-<div class="flex-1 flex flex-col overflow-hidden">
-    
-    <?php require base_path('views/partials/searchbar.php') ?>
 
-    <!-- Dashboard Content -->
-    <main class="flex-1 flex overflow-auto p-2">
+    <div class="main-layout">
+        
+        <?php require base_path('views/partials/topbar.php') ?>
 
-        <?php foreach($products as $product): ?>
-            <div class="container max-w-sm h-96 rounded  shadow-lg hover:bg-gray-50 transition duration-150 hover:-translate-y-2 hover:shadow-xl">
-                <img class="w-full" src="<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>">
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2"><?= $product['name'] ?></div>
-                    <p class="text-gray-700 text-base">
-                        <?= $product['category']?>
-                    </p>
-                    <p class="text-gray-500 text-base">
-                        <?= $product['type']?>
-                    </p>
-                    <p class="text-gray-500 text-base">
-                        Quantity: <?= $product['quantity']?>
-                    </p>
-                    
-                </div>
+        <div class="main-content">
+
+
+            <div class="products">
+                <?php foreach($products as $product): ?>
+                    <div class="product">
+                        <img src="<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>">
+                        <h2><?= $product['name'] ?></h2>
+                        <h3><?= $product['category'] ?></h3>
+                        <h3><?= $product['type'] ?></h3>
+                        <h2 class="qty">Quantity: <?= $product['quantity'] ?></h2>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php  endforeach ?>
 
-    </main>
+        </div>
+        
+    </div>
 
-</div>
+<?php require base_path('views/partials/footer.php') ?>
