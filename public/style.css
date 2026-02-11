@@ -139,6 +139,12 @@ body {
   border-radius: 12px;
   background-color: white;
   box-shadow: 1px 1px #888888;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .stat-info p{
@@ -154,6 +160,11 @@ body {
   background-color: rgba(219, 234, 254);
   padding: 1rem;
   border-radius: 12px;
+}
+
+.stat:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .recent-products{
@@ -175,22 +186,65 @@ caption h2{
   font-size: 1.2rem;
 }
 
+
+
+/******************TABLE styles**************/
+
 .recent-products table {
-  border-top: 1px solid rgba(219, 234, 254);
   width: 100%;
-}
-.recent-products table thead{
-  padding-top: 0.5rem;
-}
-
-.recent-products table thead tr th{
-  padding-left: 1rem;
-  padding-top: 0.5rem;
-  text-align: start;
-  font-size: 0.8rem;
-  color: rgba(107, 114, 128);
+  border-collapse: collapse; /* Remove double borders */
+  font-size: 0.9rem;
 
 }
+
+.recent-products table th,
+.recent-products table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb; /* subtle row separation */
+}
+
+.recent-products table thead {
+  border-bottom: #888888;
+}
+
+.recent-products table thead th {
+  color: #374151; /* dark gray text */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recent-products table tbody tr:hover {
+  background-color: #f9fafb; /* light hover effect */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.recent-products table tbody td {
+  color: #4b5563; /* slightly lighter gray for content */
+}
+
+.instock, .lowstock, .nomore{
+  padding: 0.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.instock{
+  color: green;
+  background-color: gainsboro;
+}
+
+.lowstock{
+  color: rgb(209, 66, 66);
+  background-color: rgb(233, 233, 108);
+}
+
+.nomore{
+  color: rgb(255, 0, 0);
+  background-color: pink;
+}
+
 
 
 
@@ -209,8 +263,13 @@ caption h2{
   cursor: pointer;
   align-items: center;
 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.add-product:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
 .add-product a{
   outline: none;
   border: none;
@@ -429,9 +488,17 @@ caption h2{
     gap: 1rem;
   }
   
-  .cancel-btn, .submit-btn{
+  .cancel-btn, .submit-btn, .delete-btn{
     width: 100%;
   }
+
+  .recent-products {
+    overflow-x: auto;
+  }
+  .recent-products table {
+    min-width: 600px;
+  }
+
 }
 
 
