@@ -13,7 +13,8 @@
             <div class="products">
                 <?php foreach($products as $product): ?>
                     <div class="product">
-                        <img src="<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>">
+                        <!--Replace invalud url images with broken oven -->
+                        <img src="<?= $product['image_url'] ?>" alt="<?= $product['name'] ?>" onerror="this.src='/assets/invalidOven.png'; this.onerror=null;">
                         <h2><?= $product['name'] ?></h2>
                         <h3><?= $product['category'] ?></h3>
                         <h3><?= $product['type'] ?></h3>

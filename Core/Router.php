@@ -89,7 +89,7 @@ class Router {
         http_response_code($status);
         match ($status) {
                 404 => require(base_path('views/404.view.php')), 
-                403 => require(base_path('views/403.view.php')),
+                // 403 => require(base_path('views/403.view.php')),
                 default => require(base_path('views/404.view.php')), //dont know yet 
             };
         

@@ -5,7 +5,7 @@
 
     <div class="main-layout">
         
-        <?php require('partials/topbar.php') ?>
+        <!-- <?php require('partials/topbar.php') ?> -->
 
         <div class="main-content">
 

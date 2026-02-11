@@ -10,7 +10,7 @@ class Database{
     //becomes new PDO aka php data object
     public $connection;
 
-    //
+    //PDOStament object which is used to point to the result set 
     protected $statement;
 
     public function __construct($config, $username = 'root', $password ='')
@@ -31,7 +31,7 @@ class Database{
         $this->statement = $this->connection->prepare($query);
         $this->statement->execute($params);
 
-        return $this;
+        return $this; //Return $this so you can run db functions 
 
     }
 

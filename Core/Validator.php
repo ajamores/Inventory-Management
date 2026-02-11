@@ -28,6 +28,33 @@ class Validator{
     }
 
     
+    /**
+     * int
+     *
+     * Used to ensure correct range of numbers 
+     * @param  mixed $value
+     * @param  mixed $min
+     * @param  mixed $max
+     * @return void
+     */
+    public static function int($value, $min, $max = INF){
+
+        return $value >= $min && $value <= $max;
+
+    }
+
+
+    
+    /**
+     * url
+     * PHP has built in url checker omg
+     * @param  mixed $value
+     * @return void
+     */
+    public static function url($value) {
+        return filter_var($value, FILTER_VALIDATE_URL) !== false;
+    }
+    
 
 
 }
