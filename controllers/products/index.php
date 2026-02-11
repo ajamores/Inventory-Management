@@ -14,6 +14,8 @@ $product = new Product($db);
 //Model fetches data
 $products = $product->allProducts();
 
+
+
 // dd($products);
 
 view('products/index.view.php', [

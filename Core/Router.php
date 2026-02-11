@@ -92,8 +92,6 @@ class Router {
                 // 403 => require(base_path('views/403.view.php')),
                 default => require(base_path('views/404.view.php')), //dont know yet 
             };
-        
-        
             die();
     }
 }

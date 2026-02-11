@@ -5,11 +5,9 @@
 
     <div class="main-layout">
         
-        <!-- <?php require('partials/topbar.php') ?> -->
-
         <div class="main-content">
 
-            <h1 style="text-align: center;">HTTP Status 404: Page could not be found</h1>
+            <h1 class="error-404">HTTP Status 404: Page could not be found</h1>
 
         </div>
         

@@ -2,7 +2,7 @@
 
 namespace Core;
 
-use PDO; 
+use PDO; //Use the one from the global namespace
 
 
 class Database{

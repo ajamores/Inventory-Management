@@ -17,7 +17,6 @@ spl_autoload_register(function ($class){
     //Implementing namespace Core in Database.php changes path to Core\Database
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class );
  
-    
     require base_path($class . '.php');
 });
 
@@ -25,6 +24,7 @@ $router = new Router();
 
 $routes = require(base_path('routes.php'));
 
+//strip queries from url and obtain just the path
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 

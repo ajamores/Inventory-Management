@@ -18,7 +18,11 @@
                         <h2><?= $product['name'] ?></h2>
                         <h3><?= $product['category'] ?></h3>
                         <h3><?= $product['type'] ?></h3>
-                        <h2 class="qty">Quantity: <?= $product['quantity'] ?></h2>
+                        <div class="prod-row">
+                            <!--Send just the id... you dont need the url with all the info... security risk-->
+                            <h2 class="qty">Quantity: <?= $product['quantity'] ?></h2>
+                            <a href="/products/edit?id=<?= $product['id'] ?>" class="edit">Edit</a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

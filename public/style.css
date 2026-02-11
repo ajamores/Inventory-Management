@@ -245,6 +245,20 @@ caption h2{
   height: 100%;
 }
 
+.prod-row{
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prod-row a{
+  text-decoration: none;
+  background-color: rgba(0, 0, 255);
+  padding: 12px;
+  color: white;
+  border-radius: 12px;
+}
+
 .product:hover {
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -382,6 +396,13 @@ caption h2{
 .error{
   color: #dc2626;
   font-size: small;
+}
+
+
+.error-404{
+  text-align: center;
+  margin-top: 10rem;
+  text-decoration: underline;
 }
 
 /* Responsive */

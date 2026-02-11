@@ -1,16 +1,20 @@
 <?php
 
+// dd($_SERVER);
+
 use Core\Database;
 use Core\Validator;
 use Models\Product;
 
-
-// dd($_POST);  //debug, see if route hits and what it recieves 
-
 $config = require base_path('config.php');
 $db = new Database($config['database']);
 
-//If this is empty by the end the product will be stored, otherwise errors will be throwm
+//FETCH THE PRODUCT FIRST and abort if not found
+if(!isset($_POST['id']) || !is_numeric($_POST['id'])){
+    abort(404);
+}
+
+
 $errors = [];
 
 //Get form information 
@@ -21,7 +25,7 @@ $type = $_POST['type'];
 $quantity = $_POST['quantity'];
 $imageUrl = $_POST['image_url'];
 
-// Validate information... could be refactored but for now leave these are the checks
+// Validate information... could be refactored but for now leave, these are all the checks 
 
 if(!Validator::string($name,3, 50)){
     $errors['name'] = 'Name must be betweeen 3 and 50 characters';
@@ -49,43 +53,30 @@ if(!Validator::url($imageUrl)){
 
 
 
-//If data is clean call the model to post new data resource
+//If data is clean use the model to POST new data resource
 if(empty($errors)){
 
     $product = new Product($db);
 
-    $result = $product->store($_POST);
+    $result = $product->edit($_POST);
 
     if(!$result['success']){
         $errors['sku'] = $result['error']; 
     }
 }
 
+
 //Check again if there are any errors
 
 if(!empty($errors)){
-    return view('products/create.view.php', [
+    return view('products/edit.view.php', [
+        'product' => $product,
         'errors' => $errors,
-        'heading' => 'Add a Product'
+        'heading' => 'Edit Product ID: ' . $product['id']
     ]);
 } else{
     header('location: /products');
     die();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
