@@ -4,16 +4,24 @@
         <nav class="navbar">
             <ul>
                 <li class="<?= urlIs("/") ? 'active' : '' ?>">
-                    <i class="fa-solid fa-house"></i>
-                    <a href="/" aria-current="page" >Dashboard</a>
+                    <a href="/" aria-current="page">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
                 </li>
+
                 <li class="<?= urlIs("/products") ? 'active' : '' ?>">
-                    <i class="fa-solid fa-cube"></i>
-                    <a href="/products">Products</a>
+                    <a href="/products">
+                        <i class="fa-solid fa-cube"></i>
+                        Products
+                    </a>
                 </li>
+
                 <li class="<?= urlIs("/reports") ? 'active' : '' ?>">
-                    <i class="fa-solid fa-chart-simple"></i>
-                    <a href="#">Reports</a>
+                    <a href="/reports">
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Reports
+                    </a>
                 </li>
             </ul>
         </nav>

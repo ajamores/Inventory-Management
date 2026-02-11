@@ -31,44 +31,38 @@ body {
 }
 
 
-.navbar{
-  align-self: center;
-  width: 100%;
-}
-
-.navbar ul{
-  display: flex;
-  flex-direction: column;
-}
-
-.navbar li{
+.navbar li {
   list-style: none;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   transition: background-color 0.3s ease;
 }
 
-.navbar li:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Light transparent white */
+
+.navbar li a {
+  display: flex;             
+  align-items: center;
+  padding: 1rem;              
+  width: 100%;                
+  color: whitesmoke;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 
-.navbar li.active{
+.navbar li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px; 
+}
+
+
+.navbar li.active a {
   border-left: 4px solid rgb(84, 84, 235);
   background-color: rgba(17, 24, 39);
 }
 
-.navbar i{
-  margin-left: 1rem;
-  color: whitesmoke;
-}
 
-.navbar a{
-  color: whitesmoke;
-  margin-left: 0.5rem;
-  font-size: 1rem;
-  text-decoration: none;
-
+.navbar i {
+  margin-right: 0.5rem; /* move spacing inside the clickable area */
 }
 
 
@@ -201,7 +195,7 @@ caption h2{
 .recent-products table td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #e5e7eb; /* subtle row separation */
+  border-bottom: 1px solid #e5e7eb; 
 }
 
 .recent-products table thead {
@@ -209,19 +203,19 @@ caption h2{
 }
 
 .recent-products table thead th {
-  color: #374151; /* dark gray text */
+  color: #374151; 
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .recent-products table tbody tr:hover {
-  background-color: #f9fafb; /* light hover effect */
+  background-color: #bebebe; 
   transition: background-color 0.2s ease-in-out;
 }
 
 .recent-products table tbody td {
-  color: #4b5563; /* slightly lighter gray for content */
+  color: #4b5563; 
 }
 
 .instock, .lowstock, .nomore{
@@ -474,6 +468,42 @@ caption h2{
   margin-top: 10rem;
   text-decoration: underline;
 }
+
+
+/**********Reports********/
+
+.rpt-case{
+  display: flex;
+  gap:7rem;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+.excel, .pdf{
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 2px 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.excel:hover, .pdf:hover{
+  background-color: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.excel i, .pdf i{
+  font-size: 10rem;
+}
+
+.excel p, .pdf p{
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {

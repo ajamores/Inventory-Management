@@ -23,7 +23,7 @@
                             <p class="instock">In stock</p>
                         <?php elseif($product['quantity'] <= 10): ?>
                             <p class="lowstock">Low Stock</p>
-                        <?php elseif($product === 0): ?>
+                        <?php elseif($product['quantity'] === 0): ?>
                             <p class="nomore">
                                 Out of Stock
                             </p>
