@@ -1,7 +1,6 @@
 <?php
 
-namespace Core\Database;
-namespace Models\Product;
+
 
 use Core\Database;
 use Models\Product;

@@ -66,6 +66,13 @@
                 <a href="/products" class="cancel-btn">Cancel</a>
                 <button type="submit" class="submit-btn">Save</button>
             </div>
+
+            <!-- Separate delete form -->
+            <form method="POST" action="/products">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this product?')">Delete</button>
+            </form>
         </form>
         
     </div>

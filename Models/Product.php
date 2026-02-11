@@ -42,8 +42,6 @@ class Product{
 
         return $this->db->query($query, [$id])->findOrFail(403);
         
-
-
     }
 
 
@@ -117,6 +115,17 @@ class Product{
         return [
             'success' => true,
         ];
+    }
+
+    public function destroy($id){
+
+        // No need to manually check with trusty find or fail 
+        $this->db->query("SELECT * FROM products WHERE id = ?", [(int)$id])->findOrFail();
+        
+        // If we get here, product exists, so delete it
+        $this->db->query("DELETE FROM products WHERE id = ?", [(int)$id]);
+        
+        return true;
     }
 
     
