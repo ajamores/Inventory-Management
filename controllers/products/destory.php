@@ -4,8 +4,8 @@
 use Core\Database;
 use Models\Product;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$dbConfig = getDbConfig();  
+$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
 
 
 //FETCH THE PRODUCT FIRST and abort if not found

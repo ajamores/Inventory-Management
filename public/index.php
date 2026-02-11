@@ -3,6 +3,14 @@
 
 use Core\Router;
 
+// Load Composer autoload first
+require __DIR__ . '/../vendor/autoload.php';
+
+// Load .env
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->safeload();
+
 //Path to root folder
 CONST BASE_PATH = __DIR__  . '/../'; //Current directory + go up a level
 

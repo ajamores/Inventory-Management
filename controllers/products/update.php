@@ -6,13 +6,25 @@ use Core\Database;
 use Core\Validator;
 use Models\Product;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$dbConfig = getDbConfig();  
+$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
 
-//FETCH THE PRODUCT FIRST and abort if not found
+
+//check if id is even there and abort if not found
 if(!isset($_POST['id']) || !is_numeric($_POST['id'])){
     abort(404);
 }
+
+$id = (int)$_POST['id'];
+
+// get product first make sure it exists 
+$model = new Product($db);
+$product = $model->find($id);
+
+if(!$product){
+    abort(404);
+}
+
 
 
 $errors = [];
@@ -25,10 +37,12 @@ $type = $_POST['type'];
 $quantity = $_POST['quantity'];
 $imageUrl = $_POST['image_url'];
 
+
+
 // Validate information... could be refactored but for now leave, these are all the checks 
 
-if(!Validator::string($name,3, 50)){
-    $errors['name'] = 'Name must be betweeen 3 and 50 characters';
+if(!Validator::string($name,3, 100)){
+    $errors['name'] = 'Name must be betweeen 3 and 100 characters';
 }
 
 if(!Validator::string($sku,3, 10)){
@@ -44,7 +58,7 @@ if(!Validator::string($type, 5, 100)){
 }
 
 if(!Validator::int($quantity, 1, 100)){
-    $errors['quantity'] = 'Can only accept order between 1-50 quantity';
+    $errors['quantity'] = 'Can only accept order between 1-100 quantity';
 }
 
 if(!Validator::url($imageUrl)){
@@ -53,12 +67,10 @@ if(!Validator::url($imageUrl)){
 
 
 
-//If data is clean use the model to POST new data resource
+//If data is clean use the model to put new data resource
 if(empty($errors)){
 
-    $product = new Product($db);
-
-    $result = $product->edit($_POST);
+    $result = $model->edit($_POST);
 
     if(!$result['success']){
         $errors['sku'] = $result['error']; 

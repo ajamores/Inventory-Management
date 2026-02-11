@@ -73,3 +73,19 @@ function view($path, $attributes){
     require base_path('views/' . $path);   // eg. root/views/index.php
 }
 
+
+/**
+ * Get appropriate db set up 
+ */
+function getDbConfig() {
+    static $config = null;
+    
+    if ($config === null) {
+        $allConfigs = require base_path('config.php');
+        $env = $_ENV['APP_ENV'] ?? 'dev';
+        $config = $allConfigs[$env];
+    }
+    
+    return $config;
+}
+

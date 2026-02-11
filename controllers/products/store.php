@@ -7,8 +7,9 @@ use Models\Product;
 
 // dd($_POST);  //debug, see if route hits and what it recieves 
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$dbConfig = getDbConfig();  
+$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
+
 
 //If this is empty by the end the product will be stored, otherwise errors will be throwm
 $errors = [];
@@ -23,8 +24,8 @@ $imageUrl = $_POST['image_url'];
 
 // Validate information... could be refactored but for now leave these are the checks
 
-if(!Validator::string($name,3, 50)){
-    $errors['name'] = 'Name must be betweeen 3 and 50 characters';
+if(!Validator::string($name,3, 100)){
+    $errors['name'] = 'Name must be betweeen 3 and 100 characters';
 }
 
 if(!Validator::string($sku,3, 10)){
@@ -40,7 +41,7 @@ if(!Validator::string($type, 5, 100)){
 }
 
 if(!Validator::int($quantity, 1, 100)){
-    $errors['quantity'] = 'Can only accept order between 1-50 quantity';
+    $errors['quantity'] = 'Can only accept order between 1-100 quantity';
 }
 
 if(!Validator::url($imageUrl)){

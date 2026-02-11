@@ -5,8 +5,9 @@
 use Core\Database;
 use Models\Product;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+$dbConfig = getDbConfig();  
+$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
+
 
 //covers id queries for empty and not set
 if(!isset($_GET['id']) || empty($_GET['id'])){
