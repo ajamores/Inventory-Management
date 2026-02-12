@@ -1,4 +1,4 @@
-# Inventory Management System
+# Inventory Management System (In Progress)
 
 A straightforward inventory management app for tracking commercial kitchen equipment. Nothing fancy - I built this mainly to get hands-on experience with PHP, MVC architecture, and CRUD operations.
 
