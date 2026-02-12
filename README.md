@@ -127,7 +127,7 @@ The database and tables are created automatically.
 - **Validation Layer**: Reusable validation logic for forms
 - **Clean Separation**: MVC pattern keeps things organized
 
-## Things I'd Do Differently
+## Things I will add 
 
 - Add user authentication (currently anyone can edit anything)
 - Add sessions
