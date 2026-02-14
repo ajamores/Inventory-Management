@@ -1,12 +1,12 @@
 <?php
 
-use Core\Database;
+use Core\App;
 use Models\Product;
 
-
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
-
+//The app uses container which contains the db, 
+//The argument passed is the key  to the specific function you want in this 
+//case, Our Database
+$db = App::resolve('Core\Database');
 
 //Have Product use this particular $db
 $product = new Product($db);

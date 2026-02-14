@@ -1,13 +1,9 @@
 <?php
 
-
-
-use Core\Database;
+use Core\App;
 use Models\Product;
 
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
-
+$db = App::resolve('Core\Database');
 
 //covers id queries for empty and not set
 if(!isset($_GET['id']) || empty($_GET['id'])){

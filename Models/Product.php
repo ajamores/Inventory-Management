@@ -17,8 +17,6 @@ class Product{
     {   
         $this->db = $db;
     }
-
-    
         
     /**
      * allProducts

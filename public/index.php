@@ -28,6 +28,9 @@ spl_autoload_register(function ($class){
     require base_path($class . '.php');
 });
 
+//Create container for the app
+require base_path('bootstrap.php');
+
 $router = new Router();
 
 $routes = require(base_path('routes.php'));
@@ -35,10 +38,9 @@ $routes = require(base_path('routes.php'));
 //strip queries from url and obtain just the path
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-
+//Remember that html only supports POST AND GET on forms so we pass values to the post as a workaround 
 $method = isset($_POST['_method']) ? $_POST['_method'] : $_SERVER['REQUEST_METHOD'];
-// dd($_POST);
-//Remember forms dont natively support nothing other than get and post
-//
+
+
 $router->route($uri, $method);
 

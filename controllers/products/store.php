@@ -1,14 +1,11 @@
 <?php
 
-use Core\Database;
+Use Core\App;
 use Core\Validator;
 use Models\Product;
 
 
-// dd($_POST);  //debug, see if route hits and what it recieves 
-
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
+$db = App::resolve('Core\Database'); 
 
 
 //If this is empty by the end the product will be stored, otherwise errors will be throwm

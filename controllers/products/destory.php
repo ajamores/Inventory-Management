@@ -1,13 +1,11 @@
 <?php
 
 
-use Core\Database;
+use Core\App;
 use Models\Product;
 
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
 
-
+$db = App::resolve('Core\Database');
 //FETCH THE PRODUCT FIRST and abort if not found
 if(!isset($_POST['id']) || !is_numeric($_POST['id'])){
     abort(404);

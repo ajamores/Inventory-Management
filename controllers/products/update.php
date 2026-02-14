@@ -2,12 +2,12 @@
 
 // dd($_SERVER);
 
-use Core\Database;
+use Core\App;
 use Core\Validator;
 use Models\Product;
 
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
+
+$db = App::resolve('Core\Database');
 
 
 //check if id is even there and abort if not found

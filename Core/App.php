@@ -1,0 +1,27 @@
+<?php
+
+namespace Core;
+
+class App{
+
+    protected static $container;
+
+    public static function setContainer($container){
+        //Remember static allows for it to be called anywhere
+        static::$container = $container;
+    }
+        
+    public static function container(){
+        
+        return static::$container;
+    }
+
+    //Wrapping the Container bind within this App class so that it can do that in the background 
+    public static function bind($key, $instruction){
+        static::container()->bind($key, $instruction);
+    }
+
+    public static function resolve($key){
+        return static::container()->resolve($key);
+    }
+}

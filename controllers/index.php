@@ -1,11 +1,9 @@
  <?php
 
-use Core\Database;
+use Core\App;
 use Models\Product;
 
-$dbConfig = getDbConfig();  
-$db = new Database($dbConfig, $dbConfig['username'], $dbConfig['password']);
-
+$db = App::resolve('Core\Database');
 
 $model = new Product($db);
 
