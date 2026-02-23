@@ -505,6 +505,109 @@ caption h2{
 }
 
 
+/************************Login****************************/
+
+.login-page{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(31, 41, 55);
+  display: flex;
+  flex-direction: column;
+  justify-content:center ;
+  align-items: center;
+}
+
+.h2-span{
+  color: #50e942;
+}
+
+.login-content{
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 50vw;
+}
+
+.login-title{
+  color: whitesmoke;
+}
+
+.auth-form{
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.email, .password{
+  --padding: 0px;
+  --border-radius: 7px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: var(--padding);
+  width: 250px;
+  background: #fae3e3;
+  border-radius: var(--border-radius);
+  border: 0.1px solid transparent; 
+  transition: all 0.3s ease-in-out;
+}
+
+.email input, .password input{
+  outline: none;
+  border: none;
+  background: transparent;
+  flex: 1;
+  margin-left: 1rem;
+
+}
+
+.email:hover, .password:hover{
+  border-color: #3b82f6; 
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+}
+
+.email i{
+  background-color: #16a34a;
+  padding: 0.6rem 1rem;
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.password i{
+  background-color: #ffb848;
+  padding: 0.6rem 1rem;
+  color: white;
+  border-radius: var(--border-radius);
+}
+
+.auth-form button{
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.auth-form button:hover {
+  transform: scale(1.05);
+  background-color: #16a34a;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
 

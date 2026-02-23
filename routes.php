@@ -2,6 +2,11 @@
 
 
 $router->get('/', 'controllers/index.php');
+
+$router->get('/login', 'controllers/session/create.php');
+$router->post('/session', 'controllers/session/store.php');
+
+
 $router->get('/products', 'controllers/products/index.php');
 $router->get('/products/create', 'controllers/products/create.php');
 $router->get('/products/edit', 'controllers/products/edit.php');

@@ -3,7 +3,7 @@
 namespace Models;
 
 use Core\Database;
-use PDOException;
+
 
 /**
  * 

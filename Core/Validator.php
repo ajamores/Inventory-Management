@@ -54,6 +54,17 @@ class Validator{
     public static function url($value) {
         return filter_var($value, FILTER_VALIDATE_URL) !== false;
     }
+
+
+    /* email
+     *
+     * @param  mixed $value
+     * @return void
+     */
+    public static function email(string $value): bool{
+
+        return filter_var($value, FILTER_VALIDATE_EMAIL);
+    }
     
 
 
