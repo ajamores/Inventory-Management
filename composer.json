@@ -3,7 +3,11 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "AjAm\\InventoryManagement\\": "public/"
+            "AjAm\\InventoryManagement\\": "public/",
+            "Core\\": "Core/",
+            "Http\\": "Http/",
+            "Tests\\": "Tests/",
+            "Models\\": "Models/"
         }
     },
     "authors": [

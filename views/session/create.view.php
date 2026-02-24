@@ -9,25 +9,36 @@
         <form action="/session" method="POST" class="auth-form">
             <div class="email" id="email">
                 <i class="fa-regular fa-user"></i>
-                <input type="text" 
-                name="email", 
+                <input 
+                name="email"
                 type="email" 
                 placeholder="Email Address"
-                id="email"
+                id="email-input"
                 required>
             </div>
+
+            <?php if(isset($errors['email'])): ?>
+            <p class=style="color: red;"> <?= $errors['email'] ?> </p>
+            <?php endif; ?>
 
             <div class="password" id="password">
                 <i class="fa-solid fa-key"></i>
-                <input type="text" 
-                name="password", 
-                type="password" 
+                <input type="password" 
+                name="password"
                 placeholder="Password"
-                id="email"
+                id="password-input"
                 required>
             </div>
 
+            <?php if(isset($errors['password'])): ?>
+                    <p style="color: red;"> <?= $errors['password'] ?> </p> 
+            <?php endif; ?>
+
             <button type="submit">Login</button>
+    
+            <?php if(isset($errors['auth'])): ?>
+            <p style="color: red;"> <?= $errors['auth'] ?> </p>
+            <?php endif; ?>
         </form>
     </div>
 </div>

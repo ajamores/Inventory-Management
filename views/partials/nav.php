@@ -23,6 +23,14 @@
                         Reports
                     </a>
                 </li>
+
+                <li class="<?= urlIs("/register") ? 'active' : '' ?>">
+                    <a href="/register">
+                        <i class="fa-solid fa-people-group"></i>
+                        Users
+                    </a>
+                </li>
+
             </ul>
         </nav>
     </aside>

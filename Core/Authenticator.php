@@ -6,7 +6,15 @@ use Core\Session;
 
 
 class Authenticator {
-    
+        
+    /**
+     * attempt
+     * Attempt to find user by email and if found,
+     * verify password against password hash 
+     * @param  mixed $email - email from form
+     * @param  mixed $password - password from form
+     * @return true/false
+     */
     public function attempt($email, $password){
 
         //Look for user first 
@@ -42,6 +50,12 @@ class Authenticator {
         session_regenerate_id(true ); // Here we update the session after logging in BEST PRACTICE 
     }
 
+        
+    /**
+     * logout
+     * Destroy current session aka logout
+     * @return void
+     */
     public function logout(){
         
         Session::destroy();

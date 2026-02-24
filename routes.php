@@ -6,6 +6,9 @@ $router->get('/', 'controllers/index.php');
 $router->get('/login', 'controllers/session/create.php');
 $router->post('/session', 'controllers/session/store.php');
 
+$router->get('/register', 'controllers/registration/create.php');
+$router->post('/register', 'controlleres/registration/store.php');
+
 
 $router->get('/products', 'controllers/products/index.php');
 $router->get('/products/create', 'controllers/products/create.php');

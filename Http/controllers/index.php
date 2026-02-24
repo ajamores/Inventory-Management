@@ -6,10 +6,10 @@ use Models\Product;
 $db = App::resolve('Core\Database');
 
 
-if(!isset($_SESSION['user'])){
-    header("location: /login");
-    exit();
-}
+// if(!isset($_SESSION['user'])){
+//     header("location: /login");
+//     exit();
+// }
 
 
 $model = new Product($db);

@@ -83,7 +83,13 @@ class Router {
 
 
     }
-
+    
+    /**
+     * abort
+     * Apply status code and load appropriate view 
+     * @param  mixed $status
+     * @return void
+     */
     protected function abort($status = 404){
 
         http_response_code($status);
@@ -93,6 +99,15 @@ class Router {
                 default => require(base_path('views/404.view.php')), //dont know yet 
             };
             die();
+    }
+    
+    /**
+     * previousUrl
+     * Redirects to previous url 
+     * @return void
+     */
+    public function previousUrl(){
+        return redirect($_SERVER['HTTP_REFERER']);
     }
 }
 

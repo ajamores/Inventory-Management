@@ -89,3 +89,20 @@ function getDbConfig() {
     return $config;
 }
 
+
+/**
+ * redirect
+ * When you dont have to re-render a page with data
+ * Use this method, to redirect the user to where they
+ * are suppoed to go. Otherwise use the view method 
+ * to ie. display form errors. 
+ *
+ * @param  mixed $endpoint
+ * @return void
+ */
+function redirect($endpoint){
+    header("location: $endpoint");
+    exit();
+}
+
+
