@@ -9,7 +9,7 @@
         
         <div class="login-content">
             <h2 class="login-title" >
-                <span class="h2-span">Register</span>
+                <span class="h2-span">Register a User</span>
             </h2>
 
             <form action="/register" method="POST" class="auth-form">
@@ -24,6 +24,10 @@
                         required>
                 </div>
 
+                <?php if(isset($errors['email'])): ?>
+                <p> <?= $errors['email'] ?> </p>
+                <?php endif; ?>
+
                 <div class="password">
                     <i class="fa-solid fa-key"></i>
                     <input 
@@ -34,9 +38,17 @@
                         required>
                 </div>
 
+                <?php if(isset($errors['password'])): ?>
+                    <p> <?= $errors['password'] ?> </p> 
+                <?php endif; ?>
+
                 <button type="submit" style="background-color: slateblue; color:whitesmoke">
                     Register
                 </button>
+
+                <?php if(isset($errors['auth'])): ?>
+                    <p> <?= $errors['auth'] ?> </p>
+                <?php endif; ?>
 
             </form>
         </div>

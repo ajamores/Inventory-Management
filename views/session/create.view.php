@@ -18,7 +18,7 @@
             </div>
 
             <?php if(isset($errors['email'])): ?>
-            <p class=style="color: red;"> <?= $errors['email'] ?> </p>
+            <p> <?= $errors['email'] ?> </p>
             <?php endif; ?>
 
             <div class="password" id="password">
@@ -31,13 +31,13 @@
             </div>
 
             <?php if(isset($errors['password'])): ?>
-                    <p style="color: red;"> <?= $errors['password'] ?> </p> 
+                    <p> <?= $errors['password'] ?> </p> 
             <?php endif; ?>
 
             <button type="submit">Login</button>
     
             <?php if(isset($errors['auth'])): ?>
-            <p style="color: red;"> <?= $errors['auth'] ?> </p>
+            <p> <?= $errors['auth'] ?> </p>
             <?php endif; ?>
         </form>
     </div>
