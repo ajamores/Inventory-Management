@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Middleware\Middleware;
+
 //The rotuer file will be deidcated to parsing the Uri and handling routing to controllers
 //LISTEN FOR URI or endpoints 
 //Check url and see if it matches any pages, map to appropriate controller
@@ -34,8 +36,11 @@ class Router {
         $this->routes[] = [
             'uri' => $uri,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'middleware' => null
         ];
+
+        return $this;
 
     }
 
@@ -65,6 +70,20 @@ class Router {
 
         $this->add('DELETE', $uri, $controller);
     }
+    
+    /**
+     * only
+     *
+     *  Used to chain routes with appropriate middleware 
+     * @param  mixed $key
+     * @return void
+     */
+    public function only($key){
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+
+        return $this;
+    }
+
 
 
     /**
@@ -74,6 +93,8 @@ class Router {
 
         foreach($this->routes as $route){
             if($route['uri'] === $uri && $route['method'] === strtoupper($method)){
+                
+                Middleware::resolve($route['middleware']);
                 return require base_path('Http/' . $route['controller']);
             }
         }
