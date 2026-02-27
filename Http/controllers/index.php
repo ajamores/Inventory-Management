@@ -5,12 +5,11 @@ use Models\Product;
 
 $db = App::resolve('Core\Database');
 
-
+// dd($_SESSION);
 // if(!isset($_SESSION['user'])){
 //     header("location: /login");
 //     exit();
 // }
-
 
 $model = new Product($db);
 

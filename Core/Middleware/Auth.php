@@ -2,6 +2,8 @@
 
 namespace Core\Middleware;
 
+use Core\Session;
+
 /**
  * Refactor to interface? 
  */
@@ -13,9 +15,10 @@ class Auth implements MiddlewareInterface{
      * @return void
      */
     public function handle(): void{
-        
+
         if(! $_SESSION['user'] ?? false){
-            header('location: /');
+            Session::flash('errors', ['auth' => 'Unauthoirzed access, please login to view']);
+            header('location: /login');
             exit();
         }
 

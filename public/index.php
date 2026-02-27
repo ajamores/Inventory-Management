@@ -48,7 +48,6 @@ try{
     //logic in every controoller
     Session::flash('errors', $exception->errors);
     Session::flash('old', $exception->old );
-    
     redirect($router->previousUrl());
 }
 

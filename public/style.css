@@ -13,13 +13,17 @@ body {
 }
 
 
+.side-icon i{
+  color: white;
+}
 .sidebar{
-    background: rgba(31, 41, 55);
-    min-width: 15rem;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-
+  background-image: linear-gradient(180deg, rgb(31, 41, 55) 0%, rgb(55, 65, 81) 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 80px;
     
 }
 
@@ -30,26 +34,60 @@ body {
   margin-top: 2rem;
 }
 
+.navbar ul{
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  gap: 0.25rem;
+}
+
+
+.nav-text{
+  opacity: 0;
+  visibility: none;
+
+}
 
 .navbar li {
   list-style: none;
   transition: background-color 0.3s ease;
+  gap: 1rem;
+}
+
+.navbar li a i, .navbar li form i{
+  margin-left: 0.5rem;
 }
 
 
-.navbar li a {
-  display: flex;             
+.navbar li a, .navbar li form{
+  
   align-items: center;
+  display: flex;   
   padding: 1rem;              
-  width: 100%;                
+  width: 100%;
+  gap: 0.625rem;                
   color: whitesmoke;
   text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
+.nav-form {
+  margin: 0;
+  width: 100%;
+}
 
-.navbar li a:hover {
+.nav-button {
+  all: unset;              /* removes ALL default button styles */
+  display: flex;
+  width: 100%;
+  align-items: center;
+  color: whitesmoke;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.navbar li a:hover, .navbar li form:hover {
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px; 
 }
@@ -64,6 +102,8 @@ body {
 .navbar i {
   margin-right: 0.5rem; /* move spacing inside the clickable area */
 }
+
+
 
 
 .main-layout{
@@ -619,7 +659,6 @@ caption h2{
 /* Responsive */
 @media (max-width: 768px) {
 
-
   .form-layout{
     min-width: 100%;
   }
@@ -641,10 +680,4 @@ caption h2{
   }
 
 }
-
-
-
-
-
-
 

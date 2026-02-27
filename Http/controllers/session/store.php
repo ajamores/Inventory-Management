@@ -20,7 +20,7 @@ $form = LoginForm::validate([
 $auth = new Authenticator();
 //if failed authentcation
 if(! $auth->attempt($email, $password)){
-    $form->error('auth', 'Invalid email or password');
+    $form->error('auth', 'Invalid email or password')->throw();
 }
 
 //Otherwise redirect to main page

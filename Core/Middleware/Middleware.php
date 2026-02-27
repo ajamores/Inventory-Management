@@ -23,7 +23,6 @@ class Middleware{
      * @return void
      */
     public static function resolve(?string $key): void{
-        
         if(!$key){
             return;
         }
