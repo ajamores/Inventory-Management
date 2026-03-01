@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f4a261;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffd166;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="burnerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d2d2d" />
+      <stop offset="100%" style="stop-color:#111" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="520" height="160" fill="#111111" rx="14"/>
+
+  <!-- Subtle grid texture -->
+  <line x1="0" y1="80" x2="520" y2="80" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+  <line x1="260" y1="0" x2="260" y2="160" stroke="#ffffff" stroke-width="0.3" stroke-opacity="0.05"/>
+
+  <!-- === ICON: Burner Ring === -->
+  <!-- Outer ring -->
+  <circle cx="80" cy="80" r="52" fill="none" stroke="#333" stroke-width="6"/>
+  <!-- Inner ring -->
+  <circle cx="80" cy="80" r="36" fill="none" stroke="#444" stroke-width="4"/>
+  <!-- Center knob -->
+  <circle cx="80" cy="80" r="10" fill="url(#burnerGrad)" stroke="#555" stroke-width="2"/>
+  <!-- Burner grate arms -->
+  <line x1="80" y1="44" x2="80" y2="58" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <line x1="80" y1="102" x2="80" y2="116" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <line x1="44" y1="80" x2="58" y2="80" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <line x1="102" y1="80" x2="116" y2="80" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <!-- Diagonal arms -->
+  <line x1="57" y1="57" x2="67" y2="67" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+  <line x1="93" y1="93" x2="103" y2="103" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+  <line x1="103" y1="57" x2="93" y2="67" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+  <line x1="57" y1="103" x2="67" y2="93" stroke="#555" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Flames on the burner -->
+  <!-- Flame 1 - top -->
+  <path d="M80,58 C78,52 74,46 78,38 C80,34 82,38 81,44 C85,40 87,32 84,26 C90,30 93,40 88,50 C91,47 94,44 92,38 C97,44 96,54 88,58 Z" fill="url(#flameGrad)" filter="url(#glow)" opacity="0.95"/>
+  <!-- Flame 2 - right -->
+  <path d="M102,80 C108,78 114,74 122,78 C126,80 122,82 116,81 C120,85 128,87 134,84 C130,90 120,93 110,88 C113,91 116,94 122,92 C116,97 106,96 102,88 Z" fill="url(#flameGrad)" filter="url(#glow)" opacity="0.75"/>
+  <!-- Flame 3 - small top-right -->
+  <path d="M93,67 C91,63 89,59 91,55 C92,53 93,55 93,58 C95,56 96,52 95,49 C98,51 99,56 97,60 C98,59 100,57 99,54 C101,57 101,62 98,65 Z" fill="url(#flameGrad)" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- === WORDMARK === -->
+  <!-- GARLAND -->
+  <text x="150" y="88"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="46"
+    font-weight="700"
+    letter-spacing="3"
+    fill="#ffffff">GARLAND</text>
+
+  <!-- INVENTORY -->
+  <text x="153" y="113"
+    font-family="'Courier New', Courier, monospace"
+    font-size="17"
+    font-weight="400"
+    letter-spacing="10"
+    fill="#e63946">INVENTORY</text>
+
+  <!-- Accent line between words -->
+  <line x1="150" y1="95" x2="490" y2="95" stroke="#e63946" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Mississauga tagline -->
+  <text x="153" y="138"
+    font-family="'Courier New', Courier, monospace"
+    font-size="10"
+    letter-spacing="4"
+    fill="#888888">MISSISSAUGA · COMMERCIAL RANGES</text>
+</svg>

@@ -12,10 +12,49 @@ body {
     overflow: hidden; 
 }
 
-
-.side-icon i{
-  color: white;
+.main-layout {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-left: 5rem; /* matches collapsed sidebar width */
+    width: calc(100% - 5rem);
 }
+
+.sidebar.sb-expanded ~ .main-layout {
+    margin-left: 13rem;
+    width: calc(100% - 13rem);
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.sidebar.sb-expanded{
+  width: 13rem;
+}
+
+.sb-expanded .nav-text{
+  opacity: 1;
+  visibility: visible;
+}
+
+.sb-expanded #nav-last i{
+  rotate: 180deg;
+}
+
+
+.side-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    color: white;
+}
+
+.side-icon i {
+  margin-top: 1rem;
+}
+
+.sidebar:not(.sb-expanded) .logo-full { display: none; }
+.sidebar:not(.sb-expanded) .side-icon i { margin-left: 0.5rem; }
+
 .sidebar{
   background-image: linear-gradient(180deg, rgb(31, 41, 55) 0%, rgb(55, 65, 81) 100%);
   display: flex;
@@ -23,7 +62,8 @@ body {
   gap: 4rem;
   position: fixed;
   inset: 0 auto 0 0;
-  width: 80px;
+  width: 5rem;
+  transition: width 0.5s ease-in-out;
     
 }
 
@@ -34,17 +74,26 @@ body {
   margin-top: 2rem;
 }
 
+.navbar{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .navbar ul{
   list-style: none;
   display: flex;
   flex-flow: column;
   gap: 0.25rem;
+  height: 100%;
+  flex: 1;
 }
 
 
 .nav-text{
   opacity: 0;
   visibility: none;
+  transition: opacity 0.3s ease-in-out, vusibility 0.3s ease-in-out
 
 }
 
@@ -54,16 +103,20 @@ body {
   gap: 1rem;
 }
 
+ul li:last-child{
+  margin-top: auto;
+}
+
 .navbar li a i, .navbar li form i{
   margin-left: 0.5rem;
 }
 
 
-.navbar li a, .navbar li form{
+.navbar li a{
   
-  align-items: center;
   display: flex;   
-  padding: 1rem;              
+  padding: 1rem;       
+  align-items: center;       
   width: 100%;
   gap: 0.625rem;                
   color: whitesmoke;
@@ -72,22 +125,42 @@ body {
   transition: background-color 0.3s ease;
 }
 
+.nav-form{
+  padding:1rem ;
+}
+
+#nav-last{
+  padding: 1rem; 
+  transition: background-color 0.3s ease;
+}
+
+#nav-last i{
+  margin-left: 0.5rem;
+}
+
+#nav-last:hover{
+    background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px; 
+}
+
+
 .nav-form {
   margin: 0;
   width: 100%;
 }
 
 .nav-button {
-  all: unset;              /* removes ALL default button styles */
+  all: unset;           
   display: flex;
   width: 100%;
   align-items: center;
   color: whitesmoke;
   font-size: 1rem;
   cursor: pointer;
+  gap: 0.625rem;
 }
 
-.navbar li a:hover, .navbar li form:hover {
+.navbar li a:hover, .navbar li form:hover{
   background-color: rgba(255, 255, 255, 0.15);
   border-radius: 4px; 
 }
@@ -100,17 +173,13 @@ body {
 
 
 .navbar i {
-  margin-right: 0.5rem; /* move spacing inside the clickable area */
+  margin-right: 0rem; /* move spacing inside the clickable area */
 }
 
 
 
 
-.main-layout{
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-}
+
 
 .main-content{
   overflow-y: auto; /* Enable vertical scrolling */
@@ -517,6 +586,8 @@ caption h2{
   gap:7rem;
   justify-content: center;
   margin-top: 10rem;
+  flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .excel, .pdf{
@@ -654,7 +725,29 @@ caption h2{
 
 
 
+@media (max-width: 1200px) {
 
+  .recent-products {
+    overflow-x: auto;
+  }
+  .recent-products table {
+    min-width: 600px;
+  }
+  /* Stats */
+  .product-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .stat {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -672,12 +765,31 @@ caption h2{
     width: 100%;
   }
 
+
+  /* Stats */
+  .product-stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .stat {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  /* Table */
   .recent-products {
+    margin: 1rem;
     overflow-x: auto;
   }
+
   .recent-products table {
-    min-width: 600px;
+    min-width: 500px;
   }
+
 
 }
 
