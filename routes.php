@@ -1,9 +1,11 @@
 <?php
 
 
-$router->get('/', 'controllers/index.php')->only('auth');
+$router->get('/', 'controllers/session/create.php')->only('guest');
 
-$router->get('/login', 'controllers/session/create.php')->only('guest');
+$router->get('/dashboard', 'controllers/index.php')->only('auth');
+
+
 $router->post('/session', 'controllers/session/store.php')->only('guest');
 $router->delete('/session', 'controllers/session/destroy.php');
 

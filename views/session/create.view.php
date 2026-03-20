@@ -14,6 +14,7 @@
                 type="email" 
                 placeholder="Email Address"
                 id="email-input"
+                value="admin@inventory.com"
                 required>
             </div>
 
@@ -27,6 +28,7 @@
                 name="password"
                 placeholder="Password"
                 id="password-input"
+                value="password"
                 required>
             </div>
 
