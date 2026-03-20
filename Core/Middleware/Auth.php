@@ -4,20 +4,17 @@ namespace Core\Middleware;
 
 use Core\Session;
 
-/**
- * Refactor to interface? 
- */
-class Auth implements MiddlewareInterface{
+class Auth implements MiddlewareInterface {
 
-    /**
-     * handle
-     * Determines whether or not the request can continue to the Core of application
-     * @return void
-     */
-    public function handle(): void{
+    public function handle(): void {
 
-        if(! $_SESSION['user'] ?? false){
-            Session::flash('errors', ['auth' => 'Unauthoirzed access, please login to view']);
+        if (! $_SESSION['user'] ?? false) {
+            $uri = $_SERVER['REQUEST_URI'];
+
+            if ($uri !== '/') {
+                Session::flash('errors', ['auth' => 'Unauthorized access, please login to view']);
+            }
+
             header('location: /login');
             exit();
         }
