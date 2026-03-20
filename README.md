@@ -1,12 +1,12 @@
-# Inventory Management System (In Progress)
-
-A straightforward inventory management app for tracking commercial kitchen equipment. Nothing fancy - I built this mainly to get hands-on experience with PHP, MVC architecture, and CRUD operations.
 
 ## Why I Built This
 
-I have not coded in php regularly and wanted to refresh myself with a tutorial, and instead of just copying what I saw, I applied what I've learned. This taught me so much, I could've jumped straight into Laravel, but I wanted to understand how PHP apps actually work under the hood first.
+I had an interview where the main stack involved PHP, and I wanted to build something to demonstrate that I could work with their technology. I went on their company website and used their products to create this application. While I did not get the position, I am still very proud of what I built.
 
-The 'Core' folder contains a custom MVC router, Database tools, and more helpful functions that I've learned is just given in Laravel, but I know how they work, and will make learning Larvel that easier.
+I built it using information from [Garland Group Products](https://www.garland-group.com/Products)
+, so if you’re wondering where the data comes from or how I decided to design the forms, that’s the source.
+
+It’s also worth noting that I hadn’t coded in PHP regularly, so I used a tutorial to refresh myself. Instead of just copying what I saw, I applied what I learned and built the app from scratch. This process taught me a lot. I could have jumped straight into Laravel, but I wanted to understand how PHP applications actually work under the hood first.
 ## What It Does
 
 - **Create** new products with details like SKU, category, type, and quantity
